@@ -1,13 +1,5 @@
 import type {EventBroadcasterInfo, EventUserInfo} from "../../common";
-import type {AutomodMessageBlockedTerm, AutomodMessageBoundary, AutomodMessageV2} from "../common";
-
-/**
- * @see https://dev.twitch.tv/docs/eventsub/eventsub-reference/#automod-message-hold-event-v2
- */
-export enum AutomodMessageHoldReason {
-    Automod = "automod",
-    BlockedTerm = "blocked_term",
-}
+import type {AutomodMessageBlockedTerm, AutomodMessageBoundary, AutomodMessageReason, AutomodMessageV2} from "../common";
 
 /**
  * @see https://dev.twitch.tv/docs/eventsub/eventsub-reference/#automod-message-hold-event-v2
@@ -44,9 +36,9 @@ export interface AutomodMessageHoldEventV2 extends EventBroadcasterInfo, EventUs
      */
     held_at: string;
     /**
-     * The category of the message.
+     * The reason the message was held.
      */
-    reason: AutomodMessageHoldReason;
+    reason: AutomodMessageReason;
     /**
      * If the message was caught by automod, this will be populated.
      */

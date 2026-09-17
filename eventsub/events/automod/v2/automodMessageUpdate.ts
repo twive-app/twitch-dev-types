@@ -1,14 +1,6 @@
 import type {EventBroadcasterInfo, EventModeratorInfo, EventUserInfo} from "../../common";
-import type {AutomodMessageBlockedTerm, AutomodMessageV2} from "../common";
+import type {AutomodMessageBlockedTerm, AutomodMessageReason, AutomodMessageV2} from "../common";
 import type {AutomodMessageUpdateStatus} from "../automodMessageUpdate";
-
-/**
- * @sse https://dev.twitch.tv/docs/eventsub/eventsub-reference/#automod-message-update-event-v2
- */
-export enum AutomodMessageUpdateReason {
-    Automod = "automod",
-    BlockedTerm = "blocked_term",
-}
 
 /**
  * @sse https://dev.twitch.tv/docs/eventsub/eventsub-reference/#automod-message-update-event-v2
@@ -41,7 +33,7 @@ export interface AutomodMessageUpdateEventV2 extends EventBroadcasterInfo, Event
     /**
      * The reason why the message was caught.
      */
-    reason: AutomodMessageUpdateReason;
+    reason: AutomodMessageReason;
     /**
      * If the message was caught due to a blocked term, this will be populated.
      */
