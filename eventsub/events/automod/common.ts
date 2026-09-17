@@ -149,3 +149,13 @@ export interface AutomodMessageBlockedTerm {
      */
     terms_found: AutomodMessageBlockedTermFound[];
 }
+
+/**
+ * @see https://dev.twitch.tv/docs/eventsub/eventsub-reference/#automod-message-hold-event-v2
+ * @see https://dev.twitch.tv/docs/eventsub/eventsub-reference/#automod-message-update-event-v2
+ */
+export enum AutomodMessageReason {
+    Automod = "automod",
+    BlockedLink = "blocked_link",
+    BlockedTerm = "blocked_term",
+}
