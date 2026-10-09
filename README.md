@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/twive-app/twitch-dev-types/main/.assets/twitch-dev-types-readme-banner.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/twive-app/twitch-dev-types/main/.assets/twitch-dev-types-readme-banner-dark.svg">
-    <img src="https://raw.githubusercontent.com/twive-app/twitch-dev-types/main/.assets/twitch-dev-types-readme-banner.svg" alt="twitch-dev-types" width="600"/>
+    <img src="https://raw.githubusercontent.com/twive-app/twitch-dev-types/main/.assets/twitch-dev-types-readme-banner-dark.svg" alt="twitch-dev-types" width="600"/>
   </picture>
 </p>
 
