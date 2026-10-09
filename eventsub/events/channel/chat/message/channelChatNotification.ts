@@ -21,6 +21,7 @@ export enum ChannelChatNotificationNoticeType {
     CharityDonation = "charity_donation",
     WatchStreak = "watch_streak",
     Modiversary = "modiversary",
+    GiftedDropsSummary = "gifted_drops_summary",
     SharedChatSub = "shared_chat_sub",
     SharedChatResub = "shared_chat_resub",
     SharedChatSubGift = "shared_chat_sub_gift",
@@ -31,6 +32,7 @@ export enum ChannelChatNotificationNoticeType {
     SharedChatPayItForward = "shared_chat_pay_it_forward",
     SharedChatAnnouncement = "shared_chat_announcement",
     SharedChatModiversary = "shared_chat_modiversary",
+    SharedChatGiftedDropsSummary = "shared_chat_gifted_drops_summary",
     Unknown = "unknown",
 }
 
@@ -301,6 +303,16 @@ export interface ChannelChatNotificationModiversary {
 /**
  * @see https://dev.twitch.tv/docs/eventsub/eventsub-reference/#channel-chat-notification-event
  */
+export interface ChannelChatNotificationGiftedDropsSummary {
+    /**
+     * The number of users who received a gifted Drop.
+     */
+    recipient_count: number;
+}
+
+/**
+ * @see https://dev.twitch.tv/docs/eventsub/eventsub-reference/#channel-chat-notification-event
+ */
 export interface ChannelChatNotificationEvent extends EventBroadcasterInfo {
     /**
      * The user ID of the user that sent the message.
@@ -420,6 +432,12 @@ export interface ChannelChatNotificationEvent extends EventBroadcasterInfo {
      * @remark Null if `notice_type` is not `modiversary`.
      */
     modiversary: ChannelChatNotificationModiversary|null;
+    /**
+     * Information about the gifted Drops summary event.
+     *
+     * @remarks Null if `notice_type` is not `gifted_drops_summary`.
+     */
+    gifted_drops_summary: ChannelChatNotificationGiftedDropsSummary|null;
     /**
      * The broadcaster user ID of the channel the message was sent from.
      *
@@ -546,4 +564,12 @@ export interface ChannelChatNotificationEvent extends EventBroadcasterInfo {
      * broadcaster in the subscription condition.
      */
     shared_chat_modiversary: ChannelChatNotificationModiversary|null;
+    /**
+     * Information about the `shared_chat_gifted_drops_summary` event.
+     *
+     * @remarks Is null if `notice_type` is not `shared_chat_gifted_drops_summary`. This field has the same information
+     * as the `gifted_drops_summary` field but for a notice that happened for a channel in a shared chat session other
+     * than the broadcaster in the subscription condition.
+     */
+    shared_chat_gifted_drops_summary: ChannelChatNotificationGiftedDropsSummary|null;
 }
